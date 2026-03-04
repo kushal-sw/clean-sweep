@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CleanSweep</title>
+    <meta name="description" content="Checkout and book your CleanSweep services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: var(--light-grey);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-header {
+            padding: 100px 20px 40px;
+            text-align: center;
+        }
+
+        .checkout-title {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--maroon-dark);
+        }
+
+        .checkout-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 40px;
+            padding: 0 20px 80px;
+            align-items: flex-start;
+        }
+
+        /* Form Styling */
+        .checkout-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+        }
+
+        .checkout-card h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            border-bottom: 2px solid var(--light-grey);
+            padding-bottom: 12px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--pink);
+        }
+
+        textarea.form-input {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Bill Summary */
+        .bill-card {
+            background: var(--maroon-dark);
+            color: white;
+            border-radius: 20px;
+            padding: 32px;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+            position: sticky;
+            top: 100px;
+        }
+
+        .bill-title {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: white;
+            margin-bottom: 24px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 12px;
+            text-align: center;
+        }
+
+        .bill-items {
+            margin-bottom: 24px;
+        }
+
+        .bill-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .bill-item-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .bill-item-name {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .bill-item-calc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .bill-item-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .bill-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .bill-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--pink);
+        }
+
+        .confirm-btn {
+            display: block;
+            width: 100%;
+            background: var(--pink);
+            color: white;
+            text-align: center;
+            padding: 16px;
+            border-radius: 30px;
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            margin-top: 32px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 4px 14px rgba(212, 22, 91, 0.3);
+        }
+
+        .confirm-btn:hover {
+            background: #e61d67;
+            transform: translateY(-2px);
+        }
+
+        .empty-bill-msg {
+            text-align: center;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .checkout-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="index.html#services" class="nav-link">Home</a>
+            <a href="services.html" class="nav-link">Back to Services</a>
+            <a href="index.html" class="logo">CleanSweep</a>
+            <a href="index.html#how-it-works" class="nav-link">How it works</a>
+            <a href="index.html#faqs" class="nav-link">FAQs</a>
+        </nav>
+    </header>
+
+    <div class="checkout-header">
+        <h1 class="checkout-title">Complete Your Booking</h1>
+    </div>
+
+    <div class="checkout-container">
+        <!-- Personal Details Form -->
+        <div class="checkout-card">
+            <h2>Your Details</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" required placeholder="+91 9876543210">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Date</label>
+                    <input type="date" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Time</label>
+                    <input type="time" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Complete Address</label>
+                    <textarea class="form-input" required
+                        placeholder="Flat/House No, Building, Street, Area, Landmark..."></textarea>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bill Summary -->
+        <div class="bill-card">
+            <h2 class="bill-title">Booking Summary</h2>
+            <div id="bill-content">
+                <!-- Injected via JS -->
+            </div>
+            <button class="confirm-btn" id="confirm-book-btn">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const billContent = document.getElementById('bill-content');
+            const confirmBtn = document.getElementById('confirm-book-btn');
+
+            // Retrieve cart from sessionStorage
+            const cartDataStr = sessionStorage.getItem('cleansweepCart');
+
+            if (!cartDataStr) {
+                billContent.innerHTML = '<div class="empty-bill-msg">No services selected. Please go back to services page.</div>';
+                confirmBtn.style.display = 'none';
+                return;
+            }
+
+            const cartData = JSON.parse(cartDataStr);
+            const items = Object.values(cartData.items);
+
+            if (items.length === 0) {
+                billContent.innerHTML = '<div class="empty-bill-msg">No services selected. Please go back to services page.</div>';
+                confirmBtn.style.display = 'none';
+                return;
+            }
+
+            // Generate Bill HTML
+            let html = '<div class="bill-items">';
+            items.forEach(item => {
+                html += `
+                    <div class="bill-item">
+                        <div class="bill-item-details">
+                            <span class="bill-item-name">${item.name}</span>
+                            <span class="bill-item-calc">${item.time} hrs @ ₹${item.basePricePerHour}/hr</span>
+                        </div>
+                        <span class="bill-item-price">₹${item.cost}</span>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            // Fixed convenience/tax fees for realistic bill
+            const subtotal = cartData.totalPrice;
+            const visitingCharge = 49;
+            const taxes = Math.round(subtotal * 0.18); // 18% GST
+            const finalTotal = subtotal + visitingCharge + taxes;
+
+            html += `
+                <div class="bill-summary-row">
+                    <span>Subtotal (${cartData.totalTime} hrs)</span>
+                    <span>₹${subtotal}</span>
+                </div>
+                <div class="bill-summary-row">
+                    <span>Visiting Charge</span>
+                    <span>₹${visitingCharge}</span>
+                </div>
+                <div class="bill-summary-row">
+                    <span>Taxes & Fees</span>
+                    <span>₹${taxes}</span>
+                </div>
+                <div class="bill-total">
+                    <span>Total Amount</span>
+                    <span>₹${finalTotal}</span>
+                </div>
+            `;
+
+            billContent.innerHTML = html;
+
+            // Handle confirm
+            confirmBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const form = document.getElementById('checkout-form');
+                if (form.checkValidity()) {
+                    alert('Booking Confirmed! Your expert will contact you shortly.');
+                    sessionStorage.removeItem('cleansweepCart');
+                    window.location.href = 'index.html';
+                } else {
+                    form.reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

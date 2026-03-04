@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CleanSweep - India's First Quick Service App</title>
+    <meta name="description"
+        content="On-demand home services to empower urban households. Book cleaning, kitchen prep, and more with CleanSweep.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="#services" class="nav-link">Services</a>
+            <a href="#how-it-works" class="nav-link">How it works</a>
+            <a href="#" class="logo">CleanSweep</a>
+            <a href="#why-us" class="nav-link">Why us?</a>
+            <a href="#faqs" class="nav-link">FAQs</a>
+        </nav>
+    </header>
+
+    <!-- Scroll Wrapper for Hero + Services -->
+    <div class="scroll-wrapper" id="scroll-wrapper">
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <span class="sparkle sparkle-left">✦</span>
+                <h1 class="hero-title">
+                    <span class="hero-line-1">INDIA'S FIRST</span>
+                    <span class="hero-line-2"><span class="highlight">QUICK</span> SERVICE APP</span>
+                </h1>
+                <span class="sparkle sparkle-right">✦</span>
+                <p class="hero-subtitle">On-demand home services to empower<br>urban households</p>
+                <div class="store-buttons">
+                    <a href="#" class="store-btn" id="google-play-hero">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="white">
+                            <path
+                                d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" />
+                        </svg>
+                        <div class="store-text">
+                            <span class="store-label">GET IT ON</span>
+                            <span class="store-name">Google Play</span>
+                        </div>
+                    </a>
+                    <a href="#" class="store-btn" id="app-store-hero">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="white">
+                            <path
+                                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                        </svg>
+                        <div class="store-text">
+                            <span class="store-label">Download on the</span>
+                            <span class="store-name">App Store</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-bottom">
+                <img src="images/cleaner1.svg" alt="Cleaning professional" class="hero-cleaner hero-cleaner-left">
+                <div class="hero-phone-placeholder"></div>
+                <img src="images/cleaner2.svg" alt="Cleaning professional" class="hero-cleaner hero-cleaner-right">
+            </div>
+            <div class="hero-maroon-hint"></div>
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator hero-scroll-indicator" id="hero-scroll-indicator">
+                <div class="scroll-icon">
+                    <span class="scroll-dot"></span>
+                </div>
+                <span class="scroll-text">Scroll Down</span>
+                <span class="scroll-chevron">‹</span>
+            </div>
+        </section>
+
+        <!-- Sticky Phone (flows between hero and services, sticks on scroll) -->
+        <div class="hero-phone" id="hero-phone">
+            <div class="hero-phone-notch"></div>
+            <div class="hero-phone-screen">
+                <span class="phone-logo">CleanSweep</span>
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <h2 class="section-title services-title">ONE BOOKING, <em>MANY</em><br><em>TASKS</em></h2>
+            <div class="services-layout">
+                <div class="services-side services-left">
+                    <div class="service-card service-card-sm" id="service-general">
+                        <div class="service-img">
+                            <img src="images/service-general.png" alt="General Cleaning">
+                        </div>
+                        <span class="service-name">General Cleaning</span>
+                    </div>
+                    <div class="service-card service-card-lg" id="service-dishwashing">
+                        <div class="service-img">
+                            <img src="images/service-dishwashing.png" alt="Dishwashing">
+                        </div>
+                        <span class="service-name">Dishwashing</span>
+                    </div>
+                </div>
+                <div class="services-center">
+                    <div class="service-card service-card-lg" id="service-laundry">
+                        <div class="service-img">
+                            <img src="images/service-laundry.png" alt="Laundry">
+                        </div>
+                        <span class="service-name">Laundry</span>
+                    </div>
+                    <div class="services-phone-slot"></div>
+                    <div class="service-card service-card-lg" id="service-kitchen-prep">
+                        <div class="service-img">
+                            <img src="images/service-kitchen-prep.png" alt="Kitchen Prep">
+                        </div>
+                        <span class="service-name">Kitchen Prep</span>
+                    </div>
+                </div>
+                <div class="services-side services-right">
+                    <div class="service-card service-card-lg" id="service-bathroom">
+                        <div class="service-img">
+                            <img src="images/service-bathroom.png" alt="Bathroom Cleaning">
+                        </div>
+                        <span class="service-name">Bathroom Cleaning</span>
+                    </div>
+                    <div class="service-card service-card-sm" id="service-kitchen-clean">
+                        <div class="service-img">
+                            <img src="images/service-kitchen-prep.png" alt="Kitchen Cleaning">
+                        </div>
+                        <span class="service-name">Kitchen Cleaning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div><!-- end scroll-wrapper -->
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2 class="section-title how-title">HOW CLEANSWEEP <em>WORKS?</em></h2>
+
+        <div class="steps-container">
+            <div class="step-card" id="step-1">
+                <div class="step-visual">
+                    <div class="step-phone">
+                        <div class="step-phone-content">
+                            <div class="mini-card">
+                                <div class="mini-card-img"></div>
+                                <div class="mini-card-info">
+                                    <span class="mini-card-title">House Help Service</span>
+                                    <span class="mini-card-price">₹169 <s>₹199</s> · 60 mins</span>
+                                </div>
+                            </div>
+                            <button class="mini-btn cleansweep-now">CleanSweep Now</button>
+                            <button class="mini-btn prebook">Prebook</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-info">
+                    <span class="step-badge">STEP 1</span>
+                    <h3 class="step-title">CLEANSWEEP YOUR WAY</h3>
+                    <p class="step-desc">Need help now? Get a CleanSweep expert at your doorstep in just 10 minutes.
+                        Prefer
+                        a later time? Schedule what works best for you.</p>
+                </div>
+            </div>
+
+            <div class="step-card" id="step-2">
+                <div class="step-visual">
+                    <div class="step-phone">
+                        <div class="step-phone-content">
+                            <span class="mini-label">Select Date Of Service</span>
+                            <div class="date-row">
+                                <span class="date-pill active">TODAY<br><strong>18</strong></span>
+                                <span class="date-pill">SUN<br><strong>19</strong></span>
+                                <span class="date-pill">MON<br><strong>20</strong></span>
+                            </div>
+                            <span class="mini-label">Select Time Of Service</span>
+                            <div class="time-row">
+                                <span class="time-pill">1<br><small>PM</small></span>
+                                <span class="time-pill">2<br><small>PM</small></span>
+                                <span class="time-pill">3<br><small>PM</small></span>
+                                <span class="time-pill">4<br><small>PM</small></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-info">
+                    <span class="step-badge">STEP 2</span>
+                    <h3 class="step-title">SET TIME & DURATION</h3>
+                    <p class="step-desc">Choose a time, set the duration, and get multiple tasks done in one booking.
+                    </p>
+                </div>
+            </div>
+
+            <div class="step-card" id="step-3">
+                <div class="step-visual">
+                    <div class="step-phone">
+                        <div class="step-phone-content otp-content">
+                            <span class="otp-label">KINDLY SHARE THE OTP TO<br>START THE WORK.</span>
+                            <div class="otp-boxes">
+                                <span class="otp-box">1</span>
+                                <span class="otp-box">3</span>
+                                <span class="otp-box">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-info">
+                    <span class="step-badge">STEP 3</span>
+                    <h3 class="step-title">EXPERTS ARRIVE ON-TIME</h3>
+                    <p class="step-desc">Our experts reach your doorstep at the scheduled time. Share the OTP to start
+                        the service and enjoy a smooth, hassle-free experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose CleanSweep -->
+    <section id="why-us" class="why-us">
+        <div class="scroll-indicator">
+            <div class="scroll-icon">
+                <span class="scroll-dot"></span>
+            </div>
+            <span class="scroll-arrow">▼</span>
+        </div>
+        <h2 class="section-title why-title">WHY CHOOSE <em>CLEANSWEEP</em></h2>
+        <div class="why-cards">
+            <div class="why-card" id="why-workforce">
+                <div class="why-card-img">
+                    <img src="images/hero-spraying.png" alt="Strong Women Workforce">
+                </div>
+                <p class="why-card-caption">Powered By Strong Women Workforce</p>
+            </div>
+            <div class="why-card" id="why-rating">
+                <div class="why-card-content rating-card">
+                    <span class="rating-label">AVERAGE SERVICE</span>
+                    <span class="rating-value">RATING</span>
+                    <div class="rating-badge">
+                        <span class="rating-number">4.5</span>
+                        <div class="rating-stars">★★★</div>
+                    </div>
+                </div>
+                <p class="why-card-caption">Quality You Can Trust</p>
+            </div>
+            <div class="why-card" id="why-families">
+                <div class="why-card-content families-card">
+                    <span class="families-bg">5000+</span>
+                    <span class="families-number">6000<span class="plus">+</span></span>
+                </div>
+                <p class="why-card-caption">Trusted By 6000+ Families</p>
+            </div>
+        </div>
+
+        <div class="view-services-wrapper standalone-btn">
+            <a href="services.html" class="view-services-btn">
+                View Services
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" class="view-arrow">
+                    <path d="M12 4L12 20M12 20L5 13M12 20L19 13" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="scroll-indicator">
+            <div class="scroll-icon">
+                <span class="scroll-dot"></span>
+            </div>
+            <span class="scroll-arrow">▼</span>
+        </div>
+        <h2 class="section-title testimonials-title">DON'T JUST TAKE OUR<br>WORD FOR IT</h2>
+        <div class="testimonials-carousel" id="testimonials-carousel">
+            <div class="testimonial-card" id="testimonial-1">
+                <div class="testimonial-img">
+                    <img src="images/testimonial-1.png" alt="Customer review">
+                </div>
+                <div class="testimonial-text">
+                    <p>I recently started using CleanSweep for weekly cleaning and I'm extremely impressed. They deliver
+                        quality services quickly at pocket-friendly rates. I now rely on them for weekly cleanings</p>
+                </div>
+                <div class="testimonial-footer">
+                    <span class="testimonial-name">Priya Sharma</span>
+                    <span class="testimonial-location">Andheri</span>
+                </div>
+            </div>
+            <div class="testimonial-card featured" id="testimonial-2">
+                <div class="testimonial-img">
+                    <img src="images/testimonial-2.png" alt="Customer review">
+                </div>
+                <div class="testimonial-text">
+                    <p>As a working professional, I struggle big time whenever my maid is on leave. CleanSweep's
+                        services
+                        have been a game changer. From dusting to bathroom cleaning, they take care of everything while
+                        I focus on my work.</p>
+                </div>
+                <div class="testimonial-footer">
+                    <span class="testimonial-name">Sapana Jain</span>
+                    <span class="testimonial-location">Powai</span>
+                </div>
+            </div>
+            <div class="testimonial-card" id="testimonial-3">
+                <div class="testimonial-img">
+                    <img src="images/testimonial-3.png" alt="Customer review">
+                </div>
+                <div class="testimonial-text">
+                    <p>My regular house help doesn't clean fans or bathrooms, so I tried CleanSweep. It's super
+                        convenient,
+                        and they pay attention to details my maid overlooks. I couldn't be happier!</p>
+                </div>
+                <div class="testimonial-footer">
+                    <span class="testimonial-name">Sunny Gala</span>
+                    <span class="testimonial-location">Powai</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- In The Spotlight -->
+    <section id="spotlight" class="spotlight">
+        <h2 class="section-title spotlight-title">IN THE <em>SPOTLIGHT</em></h2>
+        <div class="spotlight-logos">
+            <div class="spotlight-logo" id="logo-yourstory">
+                <span
+                    style="color: #d32f2f; font-weight: 800; font-size: 1.2rem; border: 2px solid #d32f2f; padding: 6px 14px; border-radius: 4px;">📰
+                    YOURSTORY</span>
+            </div>
+            <div class="spotlight-logo" id="logo-inc42">
+                <span style="color: #1a1a1a; font-weight: 900; font-size: 1.6rem; font-family: serif;">Inc<span
+                        style="color: #d32f2f;">42</span></span>
+            </div>
+            <div class="spotlight-logo" id="logo-moneycontrol">
+                <span
+                    style="background: linear-gradient(90deg, #4caf50, #2196f3); color: white; padding: 8px 20px; border-radius: 4px; font-weight: 700; font-size: 1.1rem;">money<strong>control</strong></span>
+            </div>
+            <div class="spotlight-logo" id="logo-et">
+                <span
+                    style="font-weight: 800; font-size: 1.2rem; font-family: 'Times New Roman', serif; letter-spacing: 2px;"><span
+                        style="background: #d32f2f; color: white; padding: 4px 8px; margin-right: 8px;">ET</span> THE
+                    ECONOMIC TIMES</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="faqs">
+        <div class="scroll-indicator">
+            <div class="scroll-icon">
+                <span class="scroll-dot"></span>
+            </div>
+            <span class="scroll-arrow">▼</span>
+        </div>
+        <h2 class="section-title faqs-title"><em>FAQ</em>s</h2>
+        <div class="faq-list" id="faq-list">
+            <div class="faq-item" id="faq-1">
+                <button class="faq-question">
+                    What is CleanSweep?
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>CleanSweep is India's first quick service app that provides on-demand home services. From
+                        cleaning
+                        to kitchen prep, our trained experts arrive at your doorstep within minutes to handle all your
+                        household tasks.</p>
+                </div>
+            </div>
+            <div class="faq-item" id="faq-2">
+                <button class="faq-question">
+                    How can I book on CleanSweep?
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Download the CleanSweep app from Google Play Store or Apple App Store. Select the service you
+                        need,
+                        choose a time slot, and book instantly. A CleanSweep expert will be at your doorstep in just 10
+                        minutes!</p>
+                </div>
+            </div>
+            <div class="faq-item" id="faq-3">
+                <button class="faq-question">
+                    Can we get multiple tasks done in one booking?
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes! That's one of CleanSweep's unique features. You can combine multiple tasks like kitchen
+                        cleaning, bathroom cleaning, mopping, and more — all in a single booking. One booking, many
+                        tasks!</p>
+                </div>
+            </div>
+            <div class="faq-item" id="faq-4">
+                <button class="faq-question">
+                    What areas do you serve?
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Currently, CleanSweep operates in Mumbai and surrounding areas. We are rapidly expanding to other
+                        cities across India. Stay tuned for updates on new locations!</p>
+                </div>
+            </div>
+            <div class="faq-item" id="faq-5">
+                <button class="faq-question">
+                    Are the service professionals verified?
+                    <span class="faq-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Absolutely! All CleanSweep experts go through a rigorous verification process including
+                        background
+                        checks and professional training. Our strong women workforce is trained to deliver the highest
+                        quality service.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer">
+        <div class="footer-content">
+            <span class="sparkle sparkle-footer-left">✦</span>
+            <h2 class="footer-title">
+                <span class="footer-line-1">INDIA'S FIRST</span>
+                <span class="footer-line-2"><span class="highlight">QUICK</span> SERVICE APP</span>
+            </h2>
+            <span class="sparkle sparkle-footer-right">✦</span>
+            <p class="footer-subtitle">On-demand home services to empower<br>urban households</p>
+            <div class="store-buttons footer-store-buttons">
+                <a href="#" class="store-btn" id="google-play-footer">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path
+                            d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" />
+                    </svg>
+                    <div class="store-text">
+                        <span class="store-label">GET IT ON</span>
+                        <span class="store-name">Google Play</span>
+                    </div>
+                </a>
+                <a href="#" class="store-btn" id="app-store-footer">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="white">
+                        <path
+                            d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                    </svg>
+                    <div class="store-text">
+                        <span class="store-label">Download on the</span>
+                        <span class="store-name">App Store</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="footer-scroll-indicator">
+            <div class="scroll-icon">
+                <span class="scroll-dot"></span>
+            </div>
+            <span class="scroll-arrow">▽</span>
+        </div>
+        <div class="footer-bottom">
+            <span class="copyright">© 2025 MaestroEdge Solutions Pvt. Ltd. All rights reserved.</span>
+            <div class="footer-links">
+                <a href="#">Terms of Use</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Equal Opportunity Policy</a>
+                <a href="#">Refund & Cancellation Policy</a>
+                <a href="#">Vulnerability Disclosure Policy</a>
+                <a href="#">Annual Return</a>
+            </div>
+        </div>
+        <div class="footer-watermark">CleanSweep</div>
+    </footer>
+
+    <!-- Fixed Download Banner -->
+    <div class="download-banner" id="download-banner">
+        <div class="banner-left">
+            <span class="banner-title">DOWNLOAD THE</span>
+            <span class="banner-logo">CleanSweep</span>
+        </div>
+        <div class="banner-buttons">
+            <a href="#" class="store-btn store-btn-sm" id="google-play-banner">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="white">
+                    <path
+                        d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199l2.302 2.302-2.302 2.302-2.698-2.302 2.698-2.302zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" />
+                </svg>
+                <div class="store-text">
+                    <span class="store-label">GET IT ON</span>
+                    <span class="store-name">Google Play</span>
+                </div>
+            </a>
+            <a href="#" class="store-btn store-btn-sm" id="app-store-banner">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="white">
+                    <path
+                        d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+                </svg>
+                <div class="store-text">
+                    <span class="store-label">Download on the</span>
+                    <span class="store-name">App Store</span>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
