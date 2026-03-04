@@ -38,4 +38,4 @@ This project was developed as a case study to demonstrate modern front-end web d
 
 ---
 
-_© 2025 MaestroEdge Solutions Pvt. Ltd / CleanSweep Case Study._
+_© 2025 kuhal Pvt. Ltd / CleanSweep._
