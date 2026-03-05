@@ -64,6 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // 2. Render Service Cards
     function renderServices() {
         gridEl.innerHTML = '';
+        const ratings = JSON.parse(localStorage.getItem('cs_ratings') || '{}');
+
         services.forEach(service => {
             const card = document.createElement('div');
             card.classList.add('service-booking-card');
@@ -71,12 +73,31 @@ document.addEventListener('DOMContentLoaded', () => {
             // Default time state
             let currentTime = service.minTime;
 
+            // Rating logic
+            const ratingData = ratings[service.name];
+            let ratingHtml = '';
+            if (ratingData && ratingData.count > 0) {
+                const avg = (ratingData.sum / ratingData.count).toFixed(1);
+                ratingHtml = `
+                    <div class="service-rating-display">
+                        ★ ${avg} <span class="rating-count">(${ratingData.count})</span>
+                    </div>
+                `;
+            } else {
+                ratingHtml = `
+                    <div class="service-rating-display" style="color: #ccc;">
+                        ☆ <span class="rating-count">New</span>
+                    </div>
+                `;
+            }
+
             card.innerHTML = `
                 <div class="service-booking-img">
                     <img src="${service.image}" alt="${service.name}">
                 </div>
                 <div class="service-booking-content">
                     <h3 class="service-booking-title">${service.name}</h3>
+                    ${ratingHtml}
                     <div class="service-booking-rate">₹${service.basePricePerHour}/hr</div>
                     
                     <div class="service-controls">

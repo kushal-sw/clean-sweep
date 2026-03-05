@@ -215,6 +215,7 @@
             <a href="index.html" class="logo">CleanSweep</a>
             <a href="index.html#how-it-works" class="nav-link">How it works</a>
             <a href="index.html#faqs" class="nav-link">FAQs</a>
+            <span id="nav-auth-area"></span>
         </nav>
     </header>
 
@@ -226,27 +227,32 @@
         <!-- Personal Details Form -->
         <div class="checkout-card">
             <h2>Your Details</h2>
-            <form id="checkout-form">
+            <form id="checkout-form" novalidate>
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" required placeholder="John Doe">
+                    <input type="text" class="form-input" id="checkout-name" placeholder="John Doe">
+                    <span class="error-msg" id="name-error"></span>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Phone Number</label>
-                    <input type="tel" class="form-input" required placeholder="+91 9876543210">
+                    <input type="tel" class="form-input" id="checkout-phone" placeholder="9876543210">
+                    <span class="error-msg" id="phone-error"></span>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Service Date</label>
-                    <input type="date" class="form-input" required>
+                    <input type="date" class="form-input" id="checkout-date">
+                    <span class="error-msg" id="date-error"></span>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Service Time</label>
-                    <input type="time" class="form-input" required>
+                    <input type="time" class="form-input" id="checkout-time">
+                    <span class="error-msg" id="time-error"></span>
                 </div>
                 <div class="form-group">
                     <label class="form-label">Complete Address</label>
-                    <textarea class="form-input" required
+                    <textarea class="form-input" id="checkout-address"
                         placeholder="Flat/House No, Building, Street, Area, Landmark..."></textarea>
+                    <span class="error-msg" id="address-error"></span>
                 </div>
             </form>
         </div>
@@ -261,6 +267,7 @@
         </div>
     </div>
 
+    <script src="auth.js"></script>
     <script src="toast.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -331,14 +338,103 @@
             confirmBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 const form = document.getElementById('checkout-form');
-                if (form.checkValidity()) {
+                if (validateCheckoutForm()) {
+                    // Save order to localStorage (F2)
+                    const serviceNames = items.map(i => i.name);
+                    const customerName = document.getElementById('checkout-name').value.trim();
+                    const serviceDate = document.getElementById('checkout-date').value;
+                    const serviceTime = document.getElementById('checkout-time').value;
+
+                    const order = {
+                        id: 'CS-' + Date.now().toString().slice(-6),
+                        customerName: customerName,
+                        date: serviceDate,
+                        time: serviceTime,
+                        services: serviceNames,
+                        total: finalTotal,
+                        status: 'Confirmed'
+                    };
+
+                    const orders = JSON.parse(localStorage.getItem('cs_orders') || '[]');
+                    orders.push(order);
+                    localStorage.setItem('cs_orders', JSON.stringify(orders));
+
                     showToast('Booking Confirmed! Your expert will contact you shortly.', 'success');
                     sessionStorage.removeItem('cleansweepCart');
-                    setTimeout(() => { window.location.href = 'index.html'; }, 1500);
+                    setTimeout(() => { window.location.href = 'tracker.html'; }, 1500);
                 } else {
-                    form.reportValidity();
+                    // Inline errors are already shown by validateCheckoutForm()
                 }
             });
+
+            // --- Custom Form Validation (F9) ---
+            function setError(id, msg) {
+                const el = document.getElementById(id);
+                const input = document.getElementById(id.replace('-error', '').replace('checkout-', 'checkout-'));
+                el.textContent = msg;
+                el.classList.add('visible');
+                if (input) input.classList.add('input-error');
+            }
+
+            function clearError(id) {
+                const el = document.getElementById(id);
+                const inputId = id.replace('-error', '');
+                const input = document.getElementById(inputId);
+                el.textContent = '';
+                el.classList.remove('visible');
+                if (input) input.classList.remove('input-error');
+            }
+
+            // Clear errors on input
+            ['checkout-name', 'checkout-phone', 'checkout-date', 'checkout-time', 'checkout-address'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.addEventListener('input', () => clearError(id + '-error'));
+                }
+            });
+
+            function validateCheckoutForm() {
+                let valid = true;
+
+                const name = document.getElementById('checkout-name').value.trim();
+                if (name.length < 3) {
+                    setError('name-error', 'Name must be at least 3 characters.');
+                    valid = false;
+                } else { clearError('name-error'); }
+
+                const phone = document.getElementById('checkout-phone').value.trim();
+                if (!/^[0-9]{10}$/.test(phone)) {
+                    setError('phone-error', 'Enter a valid 10-digit phone number.');
+                    valid = false;
+                } else { clearError('phone-error'); }
+
+                const date = document.getElementById('checkout-date').value;
+                if (!date) {
+                    setError('date-error', 'Please select a service date.');
+                    valid = false;
+                } else {
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    if (new Date(date) < today) {
+                        setError('date-error', 'Date cannot be in the past.');
+                        valid = false;
+                    } else { clearError('date-error'); }
+                }
+
+                const time = document.getElementById('checkout-time').value;
+                if (!time) {
+                    setError('time-error', 'Please select a service time.');
+                    valid = false;
+                } else { clearError('time-error'); }
+
+                const address = document.getElementById('checkout-address').value.trim();
+                if (address.length < 20) {
+                    setError('address-error', 'Address must be at least 20 characters.');
+                    valid = false;
+                } else { clearError('address-error'); }
+
+                return valid;
+            }
         });
     </script>
 </body>

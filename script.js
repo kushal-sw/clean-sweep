@@ -86,14 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // progress: 0 at top, 1 when hero is fully scrolled past
       const progress = Math.min(Math.max(scrollY / (heroH * 0.6), 0), 1);
 
-      // Cleaners parallax: move slower (0.15× scroll speed)
-      const parallaxOffset = scrollY * 0.15;
-      if (heroCleanerLeft) {
-        heroCleanerLeft.style.transform = `translateY(-${parallaxOffset}px)`;
-      }
-      if (heroCleanerRight) {
-        heroCleanerRight.style.transform = `translateY(-${parallaxOffset}px)`;
-      }
+
 
       // Hero content: fade out + slight upward shift
       const contentOpacity = Math.max(1 - progress * 2, 0);
@@ -108,10 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
         heroScrollIndicator.style.opacity = Math.max(1 - progress * 5, 0);
       }
 
-      // Maroon hint: intensify
-      if (heroMaroonHint) {
-        heroMaroonHint.style.opacity = Math.min(0.5 + progress * 1.5, 1);
-      }
+
 
       rafId = null;
     }
