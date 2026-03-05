@@ -269,10 +269,99 @@
             background: #ccc;
             cursor: not-allowed;
         }
+
+        /* --- Page Transition Loader --- */
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 9999;
+            background: var(--light-grey);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+
+        .page-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .page-loader-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink), var(--pink-light), var(--pink));
+            animation: progressBar 1.2s ease-in-out forwards;
+            border-radius: 0 2px 2px 0;
+        }
+
+        @keyframes progressBar {
+            0% {
+                width: 0%;
+            }
+
+            30% {
+                width: 55%;
+            }
+
+            70% {
+                width: 85%;
+            }
+
+            100% {
+                width: 100%;
+            }
+        }
+
+        .page-loader-spinner {
+            width: 36px;
+            height: 36px;
+            border: 3px solid rgba(93, 15, 54, 0.1);
+            border-top: 3px solid var(--pink);
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        .page-loader-text {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--maroon-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        /* Content hidden while loading */
+        body.page-loading .services-page-header,
+        body.page-loading .services-container {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .services-page-header,
+        .services-container {
+            transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
+        }
     </style>
 </head>
 
-<body>
+<body class="page-loading">
+    <!-- Page Transition Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="page-loader-bar"></div>
+        <div class="page-loader-spinner"></div>
+        <span class="page-loader-text">Loading Services…</span>
+    </div>
+
     <!-- Header -->
     <header id="header">
         <nav class="navbar">
@@ -318,6 +407,19 @@
     </div>
 
     <script src="priceestimator.js"></script>
+    <script>
+        // Page transition loader — auto-hide after 1.2s
+        const pageLoader = document.getElementById('page-loader');
+        if (pageLoader) {
+            setTimeout(() => {
+                pageLoader.classList.add('fade-out');
+                document.body.classList.remove('page-loading');
+                pageLoader.addEventListener('transitionend', () => {
+                    pageLoader.remove();
+                }, { once: true });
+            }, 1200);
+        }
+    </script>
 </body>
 
 </html>

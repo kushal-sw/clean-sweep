@@ -3,6 +3,19 @@
    ======================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  // ---- Loading Screen (F7) ----
+  const loader = document.getElementById("loader");
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add("sweep-out");
+      loader.addEventListener("transitionend", () => {
+        loader.remove();
+        document.body.classList.remove("loading");
+      }, { once: true });
+    }, 2500);
+  }
+
   // ---- FAQ Accordion ----
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach((item) => {

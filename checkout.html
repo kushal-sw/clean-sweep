@@ -261,6 +261,7 @@
         </div>
     </div>
 
+    <script src="toast.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const billContent = document.getElementById('bill-content');
@@ -331,9 +332,9 @@
                 e.preventDefault();
                 const form = document.getElementById('checkout-form');
                 if (form.checkValidity()) {
-                    alert('Booking Confirmed! Your expert will contact you shortly.');
+                    showToast('Booking Confirmed! Your expert will contact you shortly.', 'success');
                     sessionStorage.removeItem('cleansweepCart');
-                    window.location.href = 'index.html';
+                    setTimeout(() => { window.location.href = 'index.html'; }, 1500);
                 } else {
                     form.reportValidity();
                 }
