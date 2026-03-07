@@ -22,7 +22,7 @@
             <a href="services.html" class="nav-link">Services</a>
             <a href="index.html" class="logo">CleanSweep</a>
             <a href="index.html#how-it-works" class="nav-link">How it works</a>
-            <span id="nav-auth-area"></span>
+            <a href="index.html#faqs" class="nav-link">FAQs</a>
         </nav>
     </header>
 
@@ -155,7 +155,7 @@
             const result = login(email, password);
             if (result.success) {
                 showToast(result.message, 'success');
-                setTimeout(() => { window.location.href = 'services.html'; }, 1200);
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
             } else {
                 setError('login-password-error', result.message);
             }
@@ -192,7 +192,7 @@
             const result = signUp(name, email, password);
             if (result.success) {
                 showToast(result.message, 'success');
-                setTimeout(() => { window.location.href = 'services.html'; }, 1200);
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 1200);
             } else {
                 setError('signup-email-error', result.message);
             }
@@ -200,7 +200,7 @@
 
         // Redirect if already logged in
         if (getCurrentUser()) {
-            window.location.href = 'services.html';
+            window.location.href = 'dashboard.html';
         }
     </script>
 </body>

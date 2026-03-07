@@ -207,16 +207,11 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav class="navbar">
-            <a href="index.html#services" class="nav-link">Home</a>
-            <a href="services.html" class="nav-link">Back to Services</a>
-            <a href="index.html" class="logo">CleanSweep</a>
-            <a href="index.html#how-it-works" class="nav-link">How it works</a>
-            <a href="index.html#faqs" class="nav-link">FAQs</a>
-            <span id="nav-auth-area"></span>
-        </nav>
+    <!-- Header / Back Button -->
+    <header id="header"
+        style="position: absolute; top: 40px; left: 40px; z-index: 1000; width: auto; max-width: none; transform: none; padding: 0;">
+        <a href="services.html" class="back-btn"
+            style="background: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-size: 1.5rem; color: var(--text-dark); text-decoration: none;">&larr;</a>
     </header>
 
     <div class="checkout-header">
@@ -239,8 +234,9 @@
                     <span class="error-msg" id="phone-error"></span>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Service Date</label>
-                    <input type="date" class="form-input" id="checkout-date">
+                    <label class="form-label">Service Date(s)</label>
+                    <input type="text" class="form-input" id="checkout-date" placeholder="No dates selected" readonly
+                        style="background-color: var(--light-grey); color: var(--text-dark);">
                     <span class="error-msg" id="date-error"></span>
                 </div>
                 <div class="form-group">
@@ -273,6 +269,19 @@
         document.addEventListener('DOMContentLoaded', () => {
             const billContent = document.getElementById('bill-content');
             const confirmBtn = document.getElementById('confirm-book-btn');
+
+            // Retrieve and populate selected dates from schedule.html
+            const storedDatesStr = sessionStorage.getItem('cs_selectedDates');
+            const dateInput = document.getElementById('checkout-date');
+            if (storedDatesStr && dateInput) {
+                try {
+                    const datesArr = JSON.parse(storedDatesStr);
+                    if (Array.isArray(datesArr) && datesArr.length > 0) {
+                        const currentYear = new Date().getFullYear();
+                        dateInput.value = `March ${datesArr.join(', ')}, ${currentYear}`;
+                    }
+                } catch (e) { }
+            }
 
             // Retrieve cart from sessionStorage
             const cartDataStr = sessionStorage.getItem('cleansweepCart');
@@ -352,7 +361,8 @@
                         time: serviceTime,
                         services: serviceNames,
                         total: finalTotal,
-                        status: 'Confirmed'
+                        status: 'Confirmed',
+                        isInstant: sessionStorage.getItem('cs_isInstant') === 'true'
                     };
 
                     const orders = JSON.parse(localStorage.getItem('cs_orders') || '[]');
@@ -361,7 +371,8 @@
 
                     showToast('Booking Confirmed! Your expert will contact you shortly.', 'success');
                     sessionStorage.removeItem('cleansweepCart');
-                    setTimeout(() => { window.location.href = 'tracker.html'; }, 1500);
+                    sessionStorage.removeItem('cs_isInstant');
+                    setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
                 } else {
                     // Inline errors are already shown by validateCheckoutForm()
                 }
@@ -410,16 +421,9 @@
 
                 const date = document.getElementById('checkout-date').value;
                 if (!date) {
-                    setError('date-error', 'Please select a service date.');
+                    setError('date-error', 'Please select a service date from the Schedule page.');
                     valid = false;
-                } else {
-                    const today = new Date();
-                    today.setHours(0, 0, 0, 0);
-                    if (new Date(date) < today) {
-                        setError('date-error', 'Date cannot be in the past.');
-                        valid = false;
-                    } else { clearError('date-error'); }
-                }
+                } else { clearError('date-error'); }
 
                 const time = document.getElementById('checkout-time').value;
                 if (!time) {

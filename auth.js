@@ -78,7 +78,7 @@ function updateNavbarAuth() {
 
   if (user) {
     authArea.innerHTML = `
-      <a href="services.html" class="nav-link" style="color: var(--pink); font-weight: 700;">Book Services</a>
+      <a href="dashboard.html" class="nav-link" style="color: var(--pink); font-weight: 700;">Dashboard</a>
       <a href="order-history.html" class="nav-link nav-orders-link">My Orders</a>
       <span class="nav-user-name">${user.name}</span>
       <button class="nav-logout-btn" onclick="logout()">Logout</button>
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Redirects to login.html if a user tries to access a protected page while not logged in.
  */
 function protectRoutes() {
-  const protectedPages = ['services.html', 'order-history.html', 'tracker.html'];
+  const protectedPages = ['dashboard.html', 'services.html', 'order-history.html', 'tracker.html'];
   const currentPagePath = window.location.pathname;
   
   // Check if current page is one of the protected pages

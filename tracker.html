@@ -382,8 +382,17 @@
             </div>
         </div>
 
-        <!-- Rate CTA (hidden until step 4) -->
+        <!-- Rate CTA & OTP (hidden until step 4) -->
         <div class="tracker-rate-cta" id="rate-cta">
+            <div id="otp-container"
+                style="background:var(--white); border-radius:16px; padding:20px; box-shadow:0 4px 14px rgba(0,0,0,0.05); margin-bottom:24px;">
+                <p
+                    style="color:var(--text-grey); font-size:0.9rem; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; font-weight:700;">
+                    Share this OTP with our expert</p>
+                <div id="arrival-otp"
+                    style="font-family:var(--font-heading); font-size:3rem; font-weight:900; color:var(--maroon-dark); letter-spacing:4px;">
+                    ----</div>
+            </div>
             <p style="color: var(--text-grey); margin-bottom: 16px;">Your expert has arrived! 🎉</p>
             <button class="rate-btn" onclick="window.location.href='order-history.html'">★ Rate Your Experience</button>
             <br>
@@ -464,7 +473,20 @@
                 document.getElementById('time-4').textContent = formatTime(new Date());
                 progressEl.style.height = '100%';
 
-                // Show Rate CTA
+                // Generate and display a 4-digit OTP
+                let otp = '----';
+                if (orders.length > 0) {
+                    const lastOrder = orders[orders.length - 1];
+                    // Retrieve existing OTP or generate a new one
+                    if (!lastOrder.otp) {
+                        lastOrder.otp = Math.floor(1000 + Math.random() * 9000).toString();
+                        localStorage.setItem('cs_orders', JSON.stringify(orders));
+                    }
+                    otp = lastOrder.otp;
+                }
+                document.getElementById('arrival-otp').textContent = otp;
+
+                // Show Rate CTA & OTP
                 setTimeout(() => {
                     document.getElementById('rate-cta').classList.add('visible');
                 }, 600);

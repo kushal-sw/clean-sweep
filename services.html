@@ -362,23 +362,11 @@
         <span class="page-loader-text">Loading Services…</span>
     </div>
 
-    <!-- Header -->
-    <header id="header">
-        <nav class="dashboard-navbar">
-            <div class="dashboard-nav-side">
-                <a href="services.html" class="nav-link" style="color: var(--pink); font-weight: 700;">Services</a>
-                <a href="order-history.html" class="nav-link nav-orders-link">Booking History</a>
-            </div>
-
-            <div class="dashboard-nav-center">
-                <a href="index.html" class="logo">CleanSweep</a>
-            </div>
-
-            <div class="dashboard-nav-side right">
-                <a href="tracker.html" class="nav-link">Track Order</a>
-                <button class="dashboard-nav-btn logout-btn" onclick="logout()">Logout</button>
-            </div>
-        </nav>
+    <!-- Header / Back Button -->
+    <header id="header"
+        style="position: absolute; top: 40px; left: 40px; z-index: 1000; width: auto; max-width: none; transform: none; padding: 0;">
+        <a href="schedule.html" class="back-btn"
+            style="background: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-size: 1.5rem; color: var(--text-dark); text-decoration: none;">&larr;</a>
     </header>
 
     <div class="services-page-header">

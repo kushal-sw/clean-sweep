@@ -232,24 +232,11 @@
 </head>
 
 <body>
-    <!-- Header -->
-    <header id="header">
-        <nav class="dashboard-navbar">
-            <div class="dashboard-nav-side">
-                <a href="services.html" class="nav-link">Services</a>
-                <a href="order-history.html" class="nav-link nav-orders-link"
-                    style="color: var(--pink); font-weight: 700;">Booking History</a>
-            </div>
-
-            <div class="dashboard-nav-center">
-                <a href="index.html" class="logo">CleanSweep</a>
-            </div>
-
-            <div class="dashboard-nav-side right">
-                <a href="tracker.html" class="nav-link">Track Order</a>
-                <button class="dashboard-nav-btn logout-btn" onclick="logout()">Logout</button>
-            </div>
-        </nav>
+    <!-- Header / Back Button -->
+    <header id="header"
+        style="position: absolute; top: 40px; left: 40px; z-index: 1000; width: auto; max-width: none; transform: none; padding: 0;">
+        <a href="dashboard.html" class="back-btn"
+            style="background: white; border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); font-size: 1.5rem; color: var(--text-dark); text-decoration: none;">&larr;</a>
     </header>
 
     <div class="orders-header">
@@ -339,11 +326,13 @@
                 }
 
                 // Wrap original card content in a flex div, and set outer card to column
+                const instantBadge = order.isInstant ? '<span style="background:var(--pink); color:white; font-size:0.65rem; padding:3px 8px; border-radius:12px; margin-left:8px; font-weight:800; text-transform:uppercase; letter-spacing:0.5px; position:relative; top:-2px;">Instant</span>' : '';
+
                 html += `
                     <div class="order-card" style="flex-direction: column; align-items: stretch; gap: 0;">
                         <div style="display: flex; align-items: center; gap: 24px; width: 100%;" class="order-row-mobile">
                             <div class="order-id-col">
-                                <div class="order-id">${order.id}</div>
+                                <div class="order-id">${order.id}${instantBadge}</div>
                                 <div class="order-date">${order.date || 'N/A'}</div>
                             </div>
                             <div class="order-services">${serviceTags}</div>
