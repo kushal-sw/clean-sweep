@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Tracker - CleanSweep</title>
+    <meta name="description" content="Track your CleanSweep booking status in real time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/tracker.css">
+</head>
+
+<body>
+
+
+    <div class="tracker-header">
+        <h1 class="tracker-title">Booking Tracker</h1>
+    </div>
+
+    <div class="tracker-container">
+        <!-- Booking Info -->
+        <div class="tracker-booking-card" id="booking-info">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-card">
+            <div class="timeline" id="timeline">
+                <div class="timeline-progress" id="timeline-progress"></div>
+
+                <div class="timeline-step active" id="step-1">
+                    <div class="step-circle">✓</div>
+                    <div class="step-title">Booking Confirmed</div>
+                    <div class="step-desc">Your booking has been received and confirmed successfully.</div>
+                    <div class="step-time" id="time-1"></div>
+                </div>
+
+                <div class="timeline-step" id="step-2">
+                    <div class="step-circle">2</div>
+                    <div class="step-title">Expert Assigned</div>
+                    <div class="step-desc">A verified CleanSweep expert has been assigned to your booking.</div>
+                    <div class="step-time" id="time-2"></div>
+                </div>
+
+                <div class="timeline-step" id="step-3">
+                    <div class="step-circle">3</div>
+                    <div class="step-title">On The Way</div>
+                    <div class="step-desc">Your expert is heading to your location. Please be ready!</div>
+                    <div class="step-time" id="time-3"></div>
+                </div>
+
+                <div class="timeline-step" id="step-4">
+                    <div class="step-circle">4</div>
+                    <div class="step-title">Arrived</div>
+                    <div class="step-desc">Your expert has arrived! Share the OTP to begin the service.</div>
+                    <div class="step-time" id="time-4"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rate CTA & OTP (hidden until step 4) -->
+        <div class="tracker-rate-cta" id="rate-cta">
+            <div id="otp-container" class="tracker-otp-container">
+                <p class="tracker-otp-label">Share this OTP with our expert</p>
+                <div id="arrival-otp" class="tracker-otp-display">----</div>
+            </div>
+            <p class="tracker-arrival-msg">Your expert has arrived! 🎉</p>
+            <button class="rate-btn" id="rate-btn-action">★ Rate Your Experience</button>
+            <br>
+            <a href="dashboard.html" class="home-link">← Back to Dashboard</a>
+        </div>
+    </div>
+
+    <script src="../js/toast.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/tracker.js"></script>
+</body>
+
+</html>

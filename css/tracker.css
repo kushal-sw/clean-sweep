@@ -1,0 +1,332 @@
+body {
+    background: var(--light-grey);
+    min-height: 100vh;
+}
+
+.tracker-header {
+    padding: 120px 20px 10px;
+    text-align: center;
+}
+
+.tracker-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--maroon-dark);
+}
+
+.tracker-subtitle {
+    color: var(--text-grey);
+    font-size: 0.95rem;
+    margin-top: 4px;
+}
+
+.tracker-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px 20px 80px;
+}
+
+/* Booking Info Card */
+.tracker-booking-card {
+    background: var(--maroon-dark);
+    color: var(--white);
+    border-radius: 20px;
+    padding: 24px 28px;
+    margin-bottom: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.tracker-booking-id {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.tracker-services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+
+.tracker-service-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--white);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.tracker-total {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--pink);
+}
+
+/* Timeline Card */
+.timeline-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 36px 32px 36px 60px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    position: relative;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+}
+
+/* Vertical connecting line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 14px;
+    bottom: 42px;
+    width: 2px;
+    background: #e8e8e8;
+    border-radius: 2px;
+}
+
+/* Progress fill line */
+.timeline-progress {
+    position: absolute;
+    left: -22px;
+    top: 14px;
+    width: 2px;
+    height: 0;
+    max-height: calc(100% - 56px);
+    background: var(--pink);
+    border-radius: 2px;
+    transition: height 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+}
+
+.timeline-step {
+    position: relative;
+    padding-bottom: 36px;
+    padding-left: 4px;
+}
+
+.timeline-step:last-child {
+    padding-bottom: 0;
+}
+
+/* Circle indicator */
+.step-circle {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2.5px solid #d4d4d4;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.55rem;
+    font-weight: 700;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+.timeline-step.active .step-circle {
+    border-color: var(--pink);
+    background: var(--pink);
+    color: var(--white);
+    width: 22px;
+    height: 22px;
+    left: -32px;
+    top: -2px;
+    box-shadow: 0 0 0 5px rgba(233, 30, 123, 0.12);
+    font-size: 0.6rem;
+}
+
+.timeline-step.completed .step-circle {
+    border-color: #27ae60;
+    background: #27ae60;
+    color: var(--white);
+    font-size: 0.6rem;
+}
+
+/* Step content */
+.step-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #bbb;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    transition: color 0.5s;
+}
+
+.timeline-step.active .step-title,
+.timeline-step.completed .step-title {
+    color: var(--text-dark);
+}
+
+.timeline-step.active .step-title {
+    color: var(--pink);
+}
+
+.step-desc {
+    font-size: 0.85rem;
+    color: #ccc;
+    line-height: 1.5;
+    transition: color 0.5s;
+}
+
+.timeline-step.active .step-desc,
+.timeline-step.completed .step-desc {
+    color: var(--text-grey);
+}
+
+.step-time {
+    font-size: 0.72rem;
+    color: var(--text-grey);
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    font-weight: 500;
+}
+
+.timeline-step.active .step-time,
+.timeline-step.completed .step-time {
+    opacity: 1;
+}
+
+/* Rate CTA */
+.tracker-rate-cta {
+    text-align: center;
+    margin-top: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.tracker-rate-cta.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.rate-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pink);
+    color: var(--white);
+    padding: 14px 32px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.rate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.home-link {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--text-grey);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.home-link:hover {
+    color: var(--pink);
+}
+
+/* Pulse animation for active step */
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 123, 0.25);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(233, 30, 123, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(233, 30, 123, 0);
+    }
+}
+
+.timeline-step.active .step-circle {
+    animation: pulse-ring 2s ease-out infinite;
+}
+
+@media (max-width: 600px) {
+    .tracker-title {
+        font-size: 2.2rem;
+    }
+
+    .timeline-card {
+        padding: 28px 24px 28px 50px;
+    }
+
+    .step-circle {
+        left: -26px;
+    }
+
+    .timeline-step.active .step-circle {
+        left: -28px;
+    }
+
+    .timeline::before {
+        left: -18px;
+    }
+
+    .timeline-progress {
+        left: -18px;
+    }
+}
+
+/* Additions from inline styles in tracker.html */
+.tracker-otp-container {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    margin-bottom: 24px;
+}
+
+.tracker-otp-label {
+    color: var(--text-grey);
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.tracker-otp-display {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--maroon-dark);
+    letter-spacing: 4px;
+}
+
+.tracker-arrival-msg {
+    color: var(--text-grey);
+    margin-bottom: 16px;
+}

@@ -1,0 +1,14 @@
+/* schedule.css - Extracted inline styles */
+
+.pay-bottom-bar-center {
+    justify-content: center;
+}
+
+.pay-now-btn-fixed {
+    text-decoration: none;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    display: block;
+    box-sizing: border-box;
+}

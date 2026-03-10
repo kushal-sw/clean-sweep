@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - CleanSweep</title>
+    <meta name="description" content="Choose from our range of on-demand home services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/services.css">
+</head>
+
+<body class="page-loading">
+    <!-- Page Transition Loader -->
+    <div class="page-loader" id="page-loader">
+        <div class="page-loader-bar"></div>
+        <div class="page-loader-spinner"></div>
+        <span class="page-loader-text">Loading Services…</span>
+    </div>
+
+    <!-- Header / Back Button -->
+    <header id="header" class="services-fixed-header">
+        <a href="schedule.html" class="back-btn services-back-btn">&larr;</a>
+    </header>
+
+    <div class="services-page-header">
+        <h1 class="services-page-title">Select Your Services</h1>
+    </div>
+
+    <div class="services-container">
+        <!-- Services Grid -->
+        <div class="services-grid" id="services-grid">
+            <!-- Cards will be populated dynamically by JS -->
+        </div>
+
+        <!-- Estimator Sidebar -->
+        <div class="estimator-sidebar">
+            <h2 class="estimator-title">Price Estimator</h2>
+
+            <div class="selected-services-list" id="cart-list">
+                <div class="empty-cart-msg">No services selected yet. Add services to estimate price.</div>
+            </div>
+
+            <div class="estimator-summary">
+                <div class="summary-row">
+                    <span>Total Duration:</span>
+                    <span id="total-time">0 hrs</span>
+                </div>
+                <div class="summary-total">
+                    <span>Estimated Total:</span>
+                    <span id="total-price">₹0</span>
+                </div>
+            </div>
+
+            <button class="book-now-btn" id="book-btn" disabled>Proceed to Book</button>
+        </div>
+    </div>
+
+    <script src="../js/toast.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/priceestimator.js"></script>
+    <script src="../js/services.js"></script>
+</body>
+
+</html>

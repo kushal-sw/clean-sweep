@@ -1,0 +1,23 @@
+/* Styles extracted from dashboard.html inline styles */
+
+.dashboard-header-title {
+    font-size: 1.45rem;
+}
+
+.dashboard-header-subtitle {
+    margin-top: 4px;
+}
+
+.profile-dropdown-wrapper {
+    position: relative;
+}
+
+.dashboard-action-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.dashboard-habit-btn {
+    text-decoration: none;
+    display: inline-block;
+}

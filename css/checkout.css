@@ -1,0 +1,221 @@
+body {
+    background: var(--light-grey);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-header {
+    padding: 100px 20px 40px;
+    text-align: center;
+}
+
+.checkout-title {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--maroon-dark);
+}
+
+.checkout-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 40px;
+    padding: 0 20px 80px;
+    align-items: flex-start;
+}
+
+/* Form Styling */
+.checkout-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-card h2 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--light-grey);
+    padding-bottom: 12px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--pink);
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Bill Summary */
+.bill-card {
+    background: var(--maroon-dark);
+    color: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15);
+    position: sticky;
+    top: 100px;
+}
+
+.bill-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 24px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 12px;
+    text-align: center;
+}
+
+.bill-items {
+    margin-bottom: 24px;
+}
+
+.bill-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.bill-item-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bill-item-name {
+    font-weight: 600;
+    font-size: 1.05rem;
+}
+
+.bill-item-calc {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.bill-item-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.bill-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.bill-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.2);
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--pink);
+}
+
+.confirm-btn {
+    display: block;
+    width: 100%;
+    background: var(--pink);
+    color: white;
+    text-align: center;
+    padding: 16px;
+    border-radius: 30px;
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 32px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 14px rgba(212, 22, 91, 0.3);
+}
+
+.confirm-btn:hover {
+    background: #e61d67;
+    transform: translateY(-2px);
+}
+
+.empty-bill-msg {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Replacements for inline styles */
+.checkout-fixed-header {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 1000;
+    width: auto;
+    max-width: none;
+    transform: none;
+    padding: 0;
+}
+
+.checkout-back-btn {
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    text-decoration: none;
+}
+
+.checkout-input-readonly {
+    background-color: var(--light-grey);
+    color: var(--text-dark);
+}

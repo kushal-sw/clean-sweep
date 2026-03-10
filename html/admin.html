@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - CleanSweep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/admin.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">Clean<span>Admin</span></div>
+        <a href="#" class="nav-item active">Dashboard</a>
+        <a href="index.html" class="nav-item admin-exit-nav">← Exit Admin</a>
+        <div class="sidebar-footer">Admin Gateway v1.0</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="page-header">
+            <div>
+                <h1 class="page-title">Overview</h1>
+                <p class="page-subtitle">Real-time CleanSweep operations data</p>
+            </div>
+        </header>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-label">Total Bookings</div>
+                <div class="stat-value" id="stat-bookings">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value" id="stat-revenue">₹0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Avg Order Value</div>
+                <div class="stat-value" id="stat-aov">₹0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Top Service</div>
+                <div class="stat-value admin-stat-top" id="stat-top">-
+                </div>
+            </div>
+        </div>
+
+        <!-- Panels -->
+        <div class="dashboard-row">
+            <!-- Table Panel -->
+            <div class="dashboard-panel">
+                <div class="panel-header">Recent Orders</div>
+                <div class="table-responsive" id="table-container">
+                    <!-- Table injected by JS -->
+                </div>
+            </div>
+
+            <!-- Chart Panel -->
+            <div class="dashboard-panel">
+                <div class="panel-header">Popular Services</div>
+                <div class="chart-container" id="chart-container">
+                    <!-- Chart injected by JS -->
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../js/toast.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+
+</html>

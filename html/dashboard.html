@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - CleanSweep App</title>
+    <meta name="description" content="CleanSweep User Dashboard">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body class="dashboard-body">
+
+    <div class="dashboard-wrapper">
+        <!-- App Header (Location + Actions) -->
+        <header class="app-header">
+            <div class="app-header-left">
+                <h1 class="app-header-title dashboard-header-title">Hello, <span id="header-user-name">Guest</span>
+                    !</h1>
+                <p class="app-header-subtitle dashboard-header-subtitle">What do you want to get done today?</p>
+            </div>
+            <div class="app-header-right">
+                <button class="icon-btn wallet-btn" aria-label="Wallet">
+                    <img src="../images/wallet-icon.svg" alt="Wallet"
+                        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23e91e63\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'2\' y=\'5\' width=\'20\' height=\'14\' rx=\'2\' ry=\'2\'></rect><line x1=\'2\' y1=\'10\' x2=\'22\' y2=\'10\'></line></svg>'">
+                </button>
+                <div class="reward-btn-wrapper">
+                    <button class="icon-btn reward-btn" aria-label="Rewards">
+                        <img src="../images/gift-icon.svg" alt="Gift"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2327ae60\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><polyline points=\'20 12 20 22 4 22 4 12\'></polyline><rect x=\'2\' y=\'7\' width=\'20\' height=\'5\'></rect><line x1=\'12\' y1=\'22\' x2=\'12\' y2=\'7\'></line><path d=\'M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z\'></path><path d=\'M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z\'></path></svg>'">
+                    </button>
+                    <span class="reward-badge">₹150</span>
+                </div>
+                <div class="profile-dropdown-wrapper">
+                    <button class="icon-btn profile-btn" id="profile-btn" aria-label="Profile Menu">
+                        <img src="../images/user-icon.svg" alt="User"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23333\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2\'></path><circle cx=\'12\' cy=\'7\' r=\'4\'></circle></svg>'">
+                    </button>
+                    <div class="profile-dropdown" id="profile-dropdown">
+                        <div class="dropdown-header">
+                            <span id="dropdown-user-name">User</span>
+                        </div>
+                        <button class="dropdown-item" id="dashboard-logout-btn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                                <polyline points="16 17 21 12 16 7"></polyline>
+                                <line x1="21" y1="12" x2="9" y2="12"></line>
+                            </svg>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Area -->
+        <main class="dashboard-content">
+
+            <!-- Quick Actions: Schedule & Instant -->
+            <section class="quick-actions">
+                <a href="schedule.html" class="action-card schedule-card dashboard-action-card">
+                    <div class="card-icon-circle pink-bg">
+                        <img src="../images/calendar-icon.svg" alt="Calendar"
+                            onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23fff\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'3\' y=\'4\' width=\'18\' height=\'18\' rx=\'2\' ry=\'2\'></rect><line x1=\'16\' y1=\'2\' x2=\'16\' y2=\'6\'></line><line x1=\'8\' y1=\'2\' x2=\'8\' y2=\'6\'></line><line x1=\'3\' y1=\'10\' x2=\'21\' y2=\'10\'></line></svg>'">
+                    </div>
+                    <h3>Schedule <span class="arrow">&rsaquo;</span></h3>
+                    <p>Pick your time</p>
+                </a>
+
+                <a href="services.html" class="action-card instant-card dashboard-action-card">
+                    <div class="card-content">
+                        <div class="card-icon-circle light-pink-bg">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="var(--pink)" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                            </svg>
+                        </div>
+                        <h3>Instant <span class="arrow">&rsaquo;</span></h3>
+                        <p>Get help now</p>
+                    </div>
+                </a>
+
+                <a href="order-history.html" class="action-card booking-history-card dashboard-action-card">
+                    <div class="card-icon-circle pink-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Booking History <span class="arrow">&rsaquo;</span></h3>
+                    <p>View past bookings</p>
+                </a>
+
+                <a href="tracker.html" class="action-card track-order-card dashboard-action-card">
+                    <div class="card-icon-circle light-pink-bg">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="var(--pink)" stroke="var(--pink)" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="card-content">
+                        <h3>Track Order <span class="arrow">&rsaquo;</span></h3>
+                        <p>Real-time updates</p>
+                    </div>
+                </a>
+            </section>
+
+            <!-- Make it a Habit Banner -->
+            <div class="section-title-sm">Make it a habit</div>
+            <section class="habit-banner">
+                <div class="habit-banner-text">
+                    <h3>It's time for <span class="highlight">Dusting</span></h3>
+                    <p>All corners & surfaces cleaned</p>
+                    <a href="schedule.html" class="book-now-btn dashboard-habit-btn">Book Now &rarr;</a>
+                </div>
+            </section>
+
+            <!-- Expert Services Grid -->
+            <div class="section-title-md">One Expert who can do it all</div>
+            <section class="services-photo-grid">
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/house cleaning.svg" alt="House Cleaning">
+                    </div>
+                    <p>House<br>Cleaning</p>
+                </div>
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/dusting whiping.svg" alt="Dusting">
+                    </div>
+                    <p>Dusting &<br>Wiping</p>
+                </div>
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/bathroomcleaning.svg" alt="Bathroom">
+                    </div>
+                    <p>Bathroom<br>Cleaning</p>
+                </div>
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/laundary.svg" alt="Laundry">
+                    </div>
+                    <p>Laundry &<br>Ironing</p>
+                </div>
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/cleaningdishes.svg" alt="Dishes">
+                    </div>
+                    <p>Cleaning<br>Dishes</p>
+                </div>
+                <div class="service-photo-card">
+                    <div class="photo-wrapper"><img src="../images/and manymore.svg" alt="More">
+                    </div>
+                    <p>And many<br>more</p>
+                </div>
+            </section>
+
+            <!-- Refer & Earn Banner -->
+            <section class="referral-banner">
+                <div class="referral-text">
+                    <h3>Earn ₹150 for every<br>friend you refer</h3>
+                    <button class="refer-btn">Refer now</button>
+                </div>
+                <div class="referral-img">
+                    <img src="../images/vecteezy_illustration-vector-graphic-cartoon-character-of-corporate_5374547.svg"
+                        alt="Refer and Earn">
+                </div>
+            </section>
+
+            <!-- Trust Badges (Horizontal Row on Desktop) -->
+            <div class="section-title-md">Verified. Trained. Top-rated.</div>
+            <section class="trust-badges-row">
+                <div class="trust-badge">
+                    <img src="../images/kyc-icon.svg" alt="KYC"
+                        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23e91e63\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M16 21v-2a4 4 0 0 0-4-4H5c-1.1 0-2 .9-2 2v4h17z\'></path><circle cx=\'8.5\' cy=\'7\' r=\'4\'></circle><polyline points=\'16 11 18 13 22 9\'></polyline></svg>'">
+                    <p>Digital KYC<br>completed</p>
+                </div>
+                <div class="trust-badge">
+                    <img src="../images/background-check-icon.svg" alt="Background"
+                        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23e91e63\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z\'></path><polyline points=\'14 2 14 8 20 8\'></polyline><polyline points=\'9 15 11 17 15 13\'></polyline></svg>'">
+                    <p>Thorough<br>background checks</p>
+                </div>
+                <div class="trust-badge">
+                    <img src="../images/training-icon.svg" alt="Training"
+                        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23e91e63\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><rect x=\'3\' y=\'11\' width=\'18\' height=\'11\' rx=\'2\' ry=\'2\'></rect><path d=\'M7 11V7a5 5 0 0 1 10 0v4\'></path><path d=\'M12 15v2\'></path></svg>'">
+                    <p>3-day professional<br>training</p>
+                </div>
+                <div class="trust-badge">
+                    <img src="../images/bio-icon.svg" alt="Bio Friendly"
+                        onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'28\' height=\'28\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%23e91e63\' stroke-width=\'2\' stroke-linecap=\'round\' stroke-linejoin=\'round\'><path d=\'M12 22c5.523 0 10-4.477 10-10C22 5 12 2 12 2S2 5 2 12c0 5.523 4.477 10 10 10z\'/><path d=\'M12 2v20\'/><path d=\'M12 12c3.5 0 6-2.5 6-6\'/><path d=\'M12 16c-2.5 0-5-1.5-5-4\'/></svg>'">
+                    <p>Bio friendly<br>products</p>
+                </div>
+                <div class="trust-badge">
+                    <div class="rating-icon">4.8 <span class="star">★</span></div>
+                    <p>Top Rated<br>Experts</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="../js/toast.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

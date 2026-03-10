@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - CleanSweep</title>
+    <meta name="description" content="Checkout and book your CleanSweep services.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sofia+Sans+Extra+Condensed:ital,wght@0,400;0,700;0,800;0,900;1,700;1,800;1,900&family=Satoshi:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/checkout.css">
+</head>
+
+<body>
+    <!-- Header / Back Button -->
+    <header id="header" class="checkout-fixed-header">
+        <a href="services.html" class="back-btn checkout-back-btn">&larr;</a>
+    </header>
+
+    <div class="checkout-header">
+        <h1 class="checkout-title">Complete Your Booking</h1>
+    </div>
+
+    <div class="checkout-container">
+        <!-- Personal Details Form -->
+        <div class="checkout-card">
+            <h2>Your Details</h2>
+            <form id="checkout-form" novalidate>
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="checkout-name" placeholder="John Doe">
+                    <span class="error-msg" id="name-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" id="checkout-phone" placeholder="9876543210">
+                    <span class="error-msg" id="phone-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Date(s)</label>
+                    <input type="text" class="form-input checkout-input-readonly" id="checkout-date"
+                        placeholder="No dates selected" readonly>
+                    <span class="error-msg" id="date-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Service Time</label>
+                    <input type="time" class="form-input" id="checkout-time">
+                    <span class="error-msg" id="time-error"></span>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Complete Address</label>
+                    <textarea class="form-input" id="checkout-address"
+                        placeholder="Flat/House No, Building, Street, Area, Landmark..."></textarea>
+                    <span class="error-msg" id="address-error"></span>
+                </div>
+            </form>
+        </div>
+
+        <!-- Bill Summary -->
+        <div class="bill-card">
+            <h2 class="bill-title">Booking Summary</h2>
+            <div id="bill-content">
+                <!-- Injected via JS -->
+            </div>
+            <button class="confirm-btn" id="confirm-book-btn">Confirm Booking</button>
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+    <script src="../js/toast.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+
+</html>

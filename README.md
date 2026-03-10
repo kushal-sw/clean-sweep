@@ -19,12 +19,11 @@ CleanSweep is a modern, responsive front-end web application that showcases a ho
 
 ## 📂 Project Structure
 
-- `index.html`: The main landing page featuring hero sections, services, how it works, testimonials, and FAQs.
-- `services.html`: Dedicated pages for exploring service options.
-- `style.css`: The central stylesheet powering the premium aesthetic and layout.
-- `script.js`: Global functional scripts for interactive elements on the landing pages.
-- `priceestimator.js`: Contains the logic for the dynamic service booking cart and price/time estimation.
-- `images/`: Directory containing all graphical assets, logos, and UI elements.
+- `index.html`: The root entry point that redirects users to the main application.
+- `html/`: Contains all of the application's HTML views (`index.html`, `dashboard.html`, `checkout.html`, `services.html`, etc.).
+- `css/`: Contains all stylesheets, including the global `style.css` and dedicated page-specific styles ensuring modularity.
+- `js/`: Contains all JavaScript modules for logic, state management, authentication, and core functionalities.
+- `images/`: Directory containing all graphical assets, SVGs, and UI elements.
 
 ## ⚙️ How to Run
 
