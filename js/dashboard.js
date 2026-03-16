@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Dashboard specific initialization
+    
     const user = getCurrentUser();
     if (user) {
         if (document.getElementById('dropdown-user-name')) {
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle instant booking card click
+    
     const instantCard = document.querySelector('.instant-card');
     if (instantCard) {
         instantCard.addEventListener('click', () => {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Handle logout click
+    
     const logoutBtn = document.getElementById('dashboard-logout-btn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', logout);

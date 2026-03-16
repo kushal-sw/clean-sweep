@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Redirect if already logged in
+    
     if (getCurrentUser()) {
         window.location.href = 'dashboard.html';
         return;
     }
 
-    // --- Validation Helpers ---
+    
     function setError(id, msg) {
         const el = document.getElementById(id);
         const inputId = id.replace('-error', '');
@@ -24,13 +24,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input) input.classList.remove('input-error');
     }
 
-    // Clear errors on input
+    
     ['login-email', 'login-password', 'signup-name', 'signup-email', 'signup-password', 'signup-confirm'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('input', () => clearError(id + '-error'));
     });
 
-    // --- Tab Switching ---
+    
     function switchTab(tab) {
         const loginTab = document.getElementById('tab-login');
         const signupTab = document.getElementById('tab-signup');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Attach Tab Switch events
+    
     const loginTabBtn = document.getElementById('tab-login');
     const signupTabBtn = document.getElementById('tab-signup');
     const goToSignupLinks = document.querySelectorAll('p.auth-footer a');
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginTabBtn) loginTabBtn.addEventListener('click', () => switchTab('login'));
     if (signupTabBtn) signupTabBtn.addEventListener('click', () => switchTab('signup'));
     
-    // Wire up footer links dynamically based on their text
+    
     goToSignupLinks.forEach(link => {
         link.addEventListener('click', () => {
             if (link.textContent.includes('Sign Up')) {
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- Handle Login ---
+    
     function handleLogin(e) {
         e.preventDefault();
         let valid = true;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Handle Signup ---
+    
     function handleSignup(e) {
         e.preventDefault();
         let valid = true;

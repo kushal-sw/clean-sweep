@@ -1,4 +1,4 @@
-/* Specific styles for Services page */
+
 body {
     background: var(--light-grey);
 }
@@ -26,7 +26,6 @@ body {
     align-items: flex-start;
 }
 
-/* Services Grid */
 .services-grid {
     flex: 1;
     display: grid;
@@ -145,7 +144,6 @@ body {
     background: #28a745;
 }
 
-/* Estimator Sidebar */
 .estimator-sidebar {
     width: 320px;
     background: var(--white);
@@ -255,7 +253,6 @@ body {
     cursor: not-allowed;
 }
 
-/* --- Page Transition Loader --- */
 .page-loader {
     position: fixed;
     top: 0;
@@ -325,7 +322,6 @@ body {
     opacity: 0.7;
 }
 
-/* Content hidden while loading */
 body.page-loading .services-page-header,
 body.page-loading .services-container {
     opacity: 0;
@@ -337,7 +333,6 @@ body.page-loading .services-container {
     transition: opacity 0.5s ease 0.1s, transform 0.5s ease 0.1s;
 }
 
-/* Extracted from inline styles */
 .services-fixed-header {
     position: absolute;
     top: 40px;

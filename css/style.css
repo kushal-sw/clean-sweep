@@ -1,6 +1,4 @@
-/* ========================================
-   CLEANSWEEP CLONE - Global Styles
-   ======================================== */
+
 
 :root {
   --maroon-dark: #3c172a;
@@ -34,10 +32,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ========================================
-   LOADING SCREEN
-   ======================================== */
-
 body.loading {
   overflow: hidden;
 }
@@ -57,7 +51,6 @@ body.loading {
   will-change: transform;
 }
 
-/* Sweep RIGHT off screen */
 #loader.sweep-out {
   transform: translateX(100%);
 }
@@ -69,7 +62,6 @@ body.loading {
   gap: 20px;
 }
 
-/* --- 1. Sparkle: pulses in at 0s --- */
 .loader-sparkle {
   font-size: 2.2rem;
   color: var(--pink);
@@ -104,7 +96,6 @@ body.loading {
   }
 }
 
-/* --- 2. Logo: slides up at 0.3s --- */
 .loader-logo {
   font-family: var(--font-heading);
   font-size: 5rem;
@@ -124,7 +115,6 @@ body.loading {
   }
 }
 
-/* --- 3. Tagline: fades in at 0.8s --- */
 .loader-tagline {
   font-family: var(--font-body);
   font-size: 0.95rem;
@@ -142,7 +132,6 @@ body.loading {
   }
 }
 
-/* --- 4. Spinner: glowing pink arc, appears at 1.1s --- */
 .loader-spinner {
   width: 44px;
   height: 44px;
@@ -165,10 +154,6 @@ body.loading {
     transform: rotate(360deg);
   }
 }
-
-/* ========================================
-   HEADER / NAVBAR 
-   ======================================== */
 
 #header {
   position: fixed;
@@ -223,67 +208,9 @@ body.loading {
   white-space: nowrap;
 }
 
-/* -- Dashboard Specialized Navbar -- */
-.dashboard-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 40px;
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 50px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 100%;
-}
-
-.dashboard-nav-side {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  flex: 1; /* equal width on both sides */
-}
-
-/* Right side aligns items to the right */
-.dashboard-nav-side.right {
-  justify-content: flex-end;
-}
-
-/* Center logo takes up strict auto space, perfectly centered by the equal flex-1 sides */
-.dashboard-nav-center {
-  flex: 0 0 auto;
-}
-
-.dashboard-nav-btn {
-  background: none;
-  border: 1px solid var(--pink);
-  color: var(--pink);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 0.9rem;
-  padding: 6px 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.dashboard-nav-btn:hover {
-  background: var(--pink);
-  color: var(--white);
-}
-
-/* ========================================
-   SCROLL WRAPPER (Hero + Services)
-   ======================================== */
-
 .scroll-wrapper {
   position: relative;
 }
-
-/* ========================================
-   HERO SECTION
-   ======================================== */
 
 .hero {
   min-height: 100vh;
@@ -461,7 +388,6 @@ body.loading {
   z-index: 1;
 }
 
-/* -- Invisible placeholder matching phone dimensions -- */
 .hero-phone-placeholder {
   width: 280px;
   min-width: 280px;
@@ -469,7 +395,6 @@ body.loading {
   flex-shrink: 0;
 }
 
-/* -- Hero Phone (CSS STICKY — flows between hero and services) -- */
 .hero-phone {
   position: sticky;
   top: calc(50vh - 290px);
@@ -508,7 +433,6 @@ body.loading {
   justify-content: center;
 }
 
-/* -- Solid maroon hint at hero bottom -- */
 .hero-maroon-hint {
   position: absolute;
   bottom: 0;
@@ -520,62 +444,6 @@ body.loading {
   pointer-events: none;
 }
 
-/* -- Hero Scroll Indicator -- */
-.hero-scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  z-index: 10;
-  transition: opacity 0.3s ease;
-}
-
-.hero-scroll-indicator .scroll-text {
-  font-size: 0.75rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--maroon-dark);
-  opacity: 0.6;
-}
-
-.hero-scroll-indicator .scroll-chevron {
-  font-size: 1.2rem;
-  color: var(--maroon-dark);
-  opacity: 0.5;
-  transform: rotate(-90deg);
-  animation: scroll-bounce 2s ease-in-out infinite;
-}
-
-@keyframes scroll-bounce {
-  0%, 100% {
-    transform: rotate(-90deg) translateX(0);
-    opacity: 0.5;
-  }
-  50% {
-    transform: rotate(-90deg) translateX(6px);
-    opacity: 1;
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* ========================================
-   SERVICES SECTION
-   ======================================== */
-
 .services {
   background: #5d0e36;
   padding: 120px 20px 120px;
@@ -586,8 +454,6 @@ body.loading {
   z-index: 2;
   min-height: 100vh;
 }
-
-
 
 .services-title {
   color: var(--white);
@@ -610,13 +476,12 @@ body.loading {
   text-transform: uppercase;
 }
 
-/* -- Services Layout: 3-column with phone in center -- */
 .services-layout {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 40px;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
 }
@@ -624,28 +489,22 @@ body.loading {
 .services-side {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 40px;
-  width: 200px;
-}
-
-.services-center {
-  display: flex;
-  align-items: center;
-  gap: 32px;
+  gap: 24px;
+  width: 220px;
 }
 
 .services-phone-slot {
   width: 280px;
   min-width: 280px;
   height: 520px;
+  flex-shrink: 0;
 }
 
-/* -- Service Cards with photos -- */
 .service-card {
   background: var(--white);
   border-radius: 20px;
   overflow: hidden;
+  width: 100%;
   transition:
     transform 0.3s,
     box-shadow 0.3s;
@@ -657,38 +516,8 @@ body.loading {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* -- Staggered Pattern for Cards -- */
-#service-general {
-  margin-top: -100px;
-}
-#service-dishwashing {
-  margin-top: 60px;
-}
-
-#service-laundry {
-  margin-top: 140px;
-}
-#service-kitchen-prep {
-  margin-top: 140px;
-}
-
-#service-bathroom {
-  margin-top: -100px;
-}
-#service-kitchen-clean {
-  margin-top: 60px;
-}
-
-.service-card-sm {
-  width: 170px;
-}
-
-.service-card-lg {
-  width: 210px;
-}
-
 .service-img {
-  height: 150px;
+  height: 140px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -709,54 +538,12 @@ body.loading {
   color: var(--text-dark);
 }
 
-/* -- View Services Button -- */
-.view-services-wrapper {
-  margin-top: 60px;
-  display: flex;
-  justify-content: center;
-}
-
-.view-services-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--pink);
-  color: var(--white);
-  padding: 16px 36px;
-  border-radius: 40px;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  letter-spacing: 1px;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
-}
-
-.view-services-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.view-arrow {
-  transition: transform 0.2s;
-}
-
-.view-services-btn:hover .view-arrow {
-  transform: translateX(4px);
-}
-
 .phone-logo {
   color: var(--pink);
   font-family: var(--font-heading);
   font-size: 2.2rem;
   font-weight: 900;
 }
-
-/* ========================================
-   HOW IT WORKS SECTION
-   ======================================== */
 
 .how-it-works {
   background: var(--light-grey);
@@ -952,7 +739,6 @@ body.loading {
   font-weight: 400;
 }
 
-/* Date/Time pickers in step 2 */
 .mini-label {
   display: block;
   font-size: 0.6rem;
@@ -993,7 +779,6 @@ body.loading {
   color: var(--pink);
 }
 
-/* OTP in step 3 */
 .otp-content {
   display: flex;
   flex-direction: column;
@@ -1032,58 +817,10 @@ body.loading {
   background: var(--white);
 }
 
-/* ========================================
-   WHY CHOOSE CLEANSWEEP
-   ======================================== */
-
 .why-us {
   padding: 80px 20px 100px;
   text-align: center;
   background: var(--light-grey);
-}
-
-.scroll-indicator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.scroll-icon {
-  width: 24px;
-  height: 38px;
-  border: 2px solid var(--text-dark);
-  border-radius: 12px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 6px;
-  margin-bottom: 4px;
-}
-
-.scroll-dot {
-  width: 4px;
-  height: 8px;
-  background: var(--text-dark);
-  border-radius: 2px;
-  animation: scroll-bounce 1.5s ease-in-out infinite;
-}
-
-@keyframes scroll-bounce {
-  0%,
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(10px);
-    opacity: 0.3;
-  }
-}
-
-.scroll-arrow {
-  font-size: 0.8rem;
-  color: var(--text-dark);
 }
 
 .why-title {
@@ -1117,15 +854,33 @@ body.loading {
   transform: translateY(-6px);
 }
 
-.why-card-img {
-  height: 200px;
-  overflow: hidden;
+.workforce-card {
+  background: linear-gradient(135deg, #fdf0f4, #f8e8ee);
 }
 
-.why-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.workforce-label {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--maroon-dark);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.workforce-value {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--maroon-dark);
+  line-height: 1;
+}
+
+.workforce-highlight {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 3rem;
+  color: var(--pink);
+  line-height: 1;
 }
 
 .why-card-caption {
@@ -1215,10 +970,6 @@ body.loading {
   font-size: 3rem;
   color: var(--maroon-dark);
 }
-
-/* ========================================
-   TESTIMONIALS SECTION
-   ======================================== */
 
 .testimonials {
   padding: 80px 20px 100px;
@@ -1314,10 +1065,6 @@ body.loading {
   color: var(--text-grey);
 }
 
-/* ========================================
-   SPOTLIGHT SECTION
-   ======================================== */
-
 .spotlight {
   padding: 80px 20px;
   text-align: center;
@@ -1357,10 +1104,6 @@ body.loading {
   opacity: 1;
   transform: scale(1.05);
 }
-
-/* ========================================
-   FAQS SECTION
-   ======================================== */
 
 .faqs {
   padding: 80px 20px 100px;
@@ -1453,18 +1196,14 @@ body.loading {
   color: var(--text-grey);
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
-
 .footer {
   background: #5d0e36;
-  padding: 80px 40px 0; /* Increased side padding */
+  padding: 80px 40px 0; 
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-radius: 40px 40px 0 0; /* Add top rounded corners */
-  margin: 0; /* Remove side margins */
+  border-radius: 40px 40px 0 0; 
+  margin: 0; 
 }
 
 .footer-content {
@@ -1521,29 +1260,13 @@ body.loading {
   margin-bottom: 40px;
 }
 
-.footer-scroll-indicator {
-  display: none; /* Removed scroll indicator per design */
-}
-
-.footer-scroll-indicator .scroll-icon {
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.footer-scroll-indicator .scroll-dot {
-  background: rgba(255, 255, 255, 0.6);
-}
-
-.footer-scroll-indicator .scroll-arrow {
-  color: rgba(255, 255, 255, 0.4);
-}
-
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding: 24px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between; /* Space out the copyright and links */
+  justify-content: space-between; 
 }
 
 .copyright {
@@ -1555,7 +1278,7 @@ body.loading {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
-  justify-content: flex-end; /* Align links to the right */
+  justify-content: flex-end; 
 }
 
 .footer-links a {
@@ -1579,10 +1302,6 @@ body.loading {
   margin-top: 20px;
   margin-bottom: -6.5vw;
 }
-
-/* ========================================
-   FIXED DOWNLOAD BANNER
-   ======================================== */
 
 .download-banner {
   position: fixed;
@@ -1645,10 +1364,6 @@ body.loading {
   font-size: 0.85rem;
 }
 
-/* ========================================
-   SCROLL ANIMATIONS
-   ======================================== */
-
 .fade-in {
   opacity: 0;
   transform: translateY(40px);
@@ -1662,23 +1377,7 @@ body.loading {
   transform: translateY(0);
 }
 
-/* ========================================
-   RESPONSIVE
-   ======================================== */
-
 @media (max-width: 1024px) {
-  .hero-illustrations {
-    gap: 20px;
-  }
-
-  .hero-img {
-    height: 200px;
-  }
-
-  .hero-img-2 {
-    height: 220px;
-  }
-
   .why-cards {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1704,22 +1403,6 @@ body.loading {
 
   .hero-line-2 {
     font-size: 3rem;
-  }
-
-  .hero-illustrations {
-    flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .hero-img {
-    height: 160px;
-  }
-
-  .hero-img-2 {
-    height: 180px;
-  }
-  .hero-img-3 {
-    height: 150px;
   }
 
   .services-title,
@@ -1804,19 +1487,6 @@ body.loading {
     align-items: center;
   }
 
-  .services-carousel {
-    gap: 12px;
-  }
-
-  .service-card {
-    width: 140px;
-  }
-
-  .phone-mockup {
-    width: 160px;
-    height: 280px;
-  }
-
   .testimonials-title {
     font-size: 2.5rem;
   }
@@ -1825,10 +1495,6 @@ body.loading {
     flex-direction: column;
   }
 }
-
-/* ========================================
-   AUTH NAVBAR + LOGIN PAGE (F1)
-   ======================================== */
 
 #nav-auth-area {
   display: flex;
@@ -1884,7 +1550,6 @@ body.loading {
   color: var(--white);
 }
 
-/* --- Login Page Styles --- */
 .auth-page {
   min-height: 100vh;
   background: var(--light-grey);
@@ -2049,10 +1714,6 @@ body.loading {
   text-decoration: underline;
 }
 
-/* ========================================
-   CUSTOM FORM VALIDATION (F9)
-   ======================================== */
-
 .error-msg {
   display: block;
   color: #D32F2F;
@@ -2074,10 +1735,6 @@ body.loading {
   border-color: #D32F2F !important;
   box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.1) !important;
 }
-
-/* ========================================
-   SERVICE RATING SYSTEM (F11)
-   ======================================== */
 
 .rating-widget {
   display: inline-flex;
@@ -2114,10 +1771,6 @@ body.loading {
   color: var(--text-grey);
   font-size: 0.75rem;
 }
-
-/* ========================================
-   TOAST NOTIFICATIONS (F8)
-   ======================================== */
 
 #toast-container {
   position: fixed;
@@ -2159,7 +1812,6 @@ body.loading {
   transform: translateY(20px) scale(0.95);
 }
 
-/* Type variants */
 .toast-success {
   background: linear-gradient(135deg, #2ecc71, #27ae60);
 }
@@ -2219,10 +1871,6 @@ body.loading {
   }
 }
 
-/* ========================================
-   WEB APP DASHBOARD (Phase 2 - Desktop Optimized)
-   ======================================== */
-
 .dashboard-body {
   background-color: #f7f9fc;
   font-family: var(--font-body);
@@ -2235,9 +1883,9 @@ body.loading {
 
 .dashboard-wrapper {
   width: 100%;
-  max-width: 1200px; /* Unlocked for Desktop */
+  max-width: 1200px; 
   min-height: 100vh;
-  background-color: #f7f9fc; /* Blend with background */
+  background-color: #f7f9fc; 
   position: relative;
   display: flex;
   flex-direction: column;
@@ -2261,7 +1909,7 @@ body.loading {
 
 .app-header-title {
   font-family: var(--font-heading);
-  font-size: 2rem; /* Larger for desktop */
+  font-size: 2rem; 
   font-weight: 800;
   color: var(--text-dark);
   margin-bottom: 4px;
@@ -2425,15 +2073,6 @@ body.loading {
   position: relative;
   z-index: 2;
 }
-.floating-expert {
-  position: absolute;
-  right: 20px;
-  bottom: 0;
-  height: 120%;
-  max-height: 220px;
-  object-fit: contain;
-  z-index: 1;
-}
 
 .habit-banner {
   background: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 100%);
@@ -2492,7 +2131,6 @@ body.loading {
   transform: scale(1.05);
 }
 
-/* Profile Dropdown Menu */
 .profile-dropdown {
   position: absolute;
   top: calc(100% + 12px);
@@ -2549,18 +2187,6 @@ body.loading {
   background: #fff0f0;
 }
 
-.habit-img {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
-  height: 140%;
-  max-height: 240px;
-  object-fit: contain;
-  z-index: 1;
-}
-
-/* Service photo grid -> 6 items across on desktop */
 .services-photo-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -2747,9 +2373,6 @@ body.loading {
   }
 }
 
-/* ========================================
-   SCHEDULE / BOOKING UI (Phase 2)
-   ======================================== */
 .schedule-wrapper {
   background-color: #f7f9fc;
 }
@@ -2884,13 +2507,6 @@ body.loading {
   background: #fdfdfd;
 }
 
-.date-divider {
-  width: 24px;
-  height: 1px;
-  background: #e0e0e0;
-  margin: 0 16px;
-}
-
 .calendar-days-row {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -2970,41 +2586,6 @@ body.loading {
   box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.pay-method {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.pay-label {
-  font-size: 0.75rem;
-  color: var(--text-grey);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.pay-label .caret {
-  font-size: 0.5rem;
-}
-
-.pay-account {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.fam-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.account-id {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-dark);
-}
-
 .pay-now-btn {
   background: #eef0f3;
   color: #a0a8b1;
@@ -3022,7 +2603,6 @@ body.loading {
   cursor: pointer;
 }
 
-/* Spotlight Logos */
 .logo-yourstory-text {
     color: #d32f2f;
     font-weight: 800;

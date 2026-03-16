@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Define Services Data
+    
     const services = [
         {
             id: 'service-general',
@@ -44,24 +44,24 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 'service-kitchen-clean',
             name: 'Kitchen Cleaning',
-            image: '../images/service-kitchen-prep.png', // reusing prep image from index
+            image: '../images/service-kitchen-prep.png', 
             basePricePerHour: 249,
             minTime: 1,
             maxTime: 4
         }
     ];
 
-    // State
+    
     const cart = {};
 
-    // Elements
+    
     const gridEl = document.getElementById('services-grid');
     const cartListEl = document.getElementById('cart-list');
     const totalTimeEl = document.getElementById('total-time');
     const totalPriceEl = document.getElementById('total-price');
     const bookBtn = document.getElementById('book-btn');
 
-    // 2. Render Service Cards
+    
     function renderServices() {
         gridEl.innerHTML = '';
         const ratings = JSON.parse(localStorage.getItem('cs_ratings') || '{}');
@@ -70,10 +70,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.classList.add('service-booking-card');
 
-            // Default time state
+            
             let currentTime = service.minTime;
 
-            // Rating logic
+            
             const ratingData = ratings[service.name];
             let ratingHtml = '';
             if (ratingData && ratingData.count > 0) {
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             gridEl.appendChild(card);
 
-            // Time Selector Logic
+            
             const minusBtn = card.querySelector('.minus-btn');
             const plusBtn = card.querySelector('.plus-btn');
             const addBtn = card.querySelector('.add-service-btn');
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentTime--;
                     timeDisplay.textContent = `${currentTime}h`;
                     if(cart[service.id]) {
-                        addToCart(service.id, currentTime); // update cart if already added
+                        addToCart(service.id, currentTime); 
                     }
                 }
             });
@@ -133,12 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     currentTime++;
                     timeDisplay.textContent = `${currentTime}h`;
                     if(cart[service.id]) {
-                        addToCart(service.id, currentTime); // update cart if already added
+                        addToCart(service.id, currentTime); 
                     }
                 }
             });
 
-            // Add button logic
+            
             addBtn.addEventListener('click', () => {
                 if (cart[service.id]) {
                     removeFromCart(service.id);
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 3. Cart Functions
+    
     function addToCart(serviceId, time) {
         const service = services.find(s => s.id === serviceId);
         cart[serviceId] = {
@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         delete cart[serviceId];
         updateEstimator();
         
-        // Update button UI if triggered from elsewhere
+        
         const addBtn = document.getElementById(`btn-${serviceId}`);
         if(addBtn) {
             addBtn.textContent = 'Add';
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // 4. Update Price Estimator UI
+    
     function updateEstimator() {
         const cartItems = Object.values(cart);
         
@@ -213,9 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
         bookBtn.disabled = false;
     }
 
-    // 5. Checkout Navigation
+    
     bookBtn.addEventListener('click', () => {
-        // Save to sessionStorage
+        
         sessionStorage.setItem('cleansweepCart', JSON.stringify({
             items: cart,
             totalTime: parseInt(totalTimeEl.textContent),
@@ -224,6 +224,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'checkout.html';
     });
 
-    // Initialize
+    
     renderServices();
 });

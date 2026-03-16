@@ -1,4 +1,4 @@
-// Page transition loader — auto-hide after 1.2s
+
 document.addEventListener('DOMContentLoaded', () => {
     const pageLoader = document.getElementById('page-loader');
     if (pageLoader) {

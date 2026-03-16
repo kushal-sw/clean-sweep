@@ -2,7 +2,7 @@ class RatingWidget {
     constructor(container, serviceName, onRate) {
         this.container = container;
         this.serviceName = serviceName;
-        this.onRate = onRate; // callback when a rating is submitted
+        this.onRate = onRate; 
         this.currentRating = 0;
         this.render();
     }
@@ -13,7 +13,7 @@ class RatingWidget {
         
         for (let i = 1; i <= 5; i++) {
             const star = document.createElement('span');
-            star.textContent = '★'; // solid star, colored via CSS
+            star.textContent = '★'; 
             star.classList.add('rating-star');
             star.dataset.value = i;
             
@@ -23,7 +23,7 @@ class RatingWidget {
             
             this.container.appendChild(star);
         }
-        this.highlight(0); // initial: all grey
+        this.highlight(0); 
     }
 
     highlight(val) {
@@ -38,12 +38,12 @@ class RatingWidget {
     }
 
     rate(val) {
-        if (this.currentRating > 0) return; // Prevent multiple ratings for the same widget instance
+        if (this.currentRating > 0) return; 
 
         this.currentRating = val;
         this.highlight(val);
         
-        // Save to localStorage
+        
         const ratings = JSON.parse(localStorage.getItem('cs_ratings') || '{}');
         const current = ratings[this.serviceName] || { sum: 0, count: 0 };
         ratings[this.serviceName] = {
@@ -52,13 +52,13 @@ class RatingWidget {
         };
         localStorage.setItem('cs_ratings', JSON.stringify(ratings));
         
-        // Disable further interactions on these stars
+        
         const stars = this.container.querySelectorAll('.rating-star');
         stars.forEach(star => {
             star.style.pointerEvents = 'none';
         });
 
-        // Add a small animation for feedback
+        
         this.container.style.transform = 'scale(1.05)';
         setTimeout(() => this.container.style.transform = 'scale(1)', 200);
 

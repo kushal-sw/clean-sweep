@@ -1,4 +1,4 @@
-/* order-history.css */
+
 body {
     background: var(--light-grey);
     min-height: 100vh;
@@ -30,7 +30,6 @@ body {
     padding: 0 20px 80px;
 }
 
-/* Order Cards */
 .order-card {
     background: var(--white);
     border-radius: 20px;
@@ -118,7 +117,6 @@ body {
     color: #c0392b;
 }
 
-/* Empty State */
 .orders-empty {
     text-align: center;
     padding: 80px 20px;
@@ -168,7 +166,6 @@ body {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
-/* Stats Row */
 .orders-stats {
     display: flex;
     gap: 16px;
@@ -215,7 +212,6 @@ body {
     }
 }
 
-/* Additional Classes replacing inline styles */
 .orders-fixed-header {
     position: absolute;
     top: 40px;

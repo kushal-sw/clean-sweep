@@ -28,7 +28,6 @@ body {
     align-items: flex-start;
 }
 
-/* Form Styling */
 .checkout-card {
     background: var(--white);
     border-radius: 20px;
@@ -76,7 +75,6 @@ textarea.form-input {
     min-height: 100px;
 }
 
-/* Bill Summary */
 .bill-card {
     background: var(--maroon-dark);
     color: white;
@@ -189,7 +187,6 @@ textarea.form-input {
     }
 }
 
-/* Replacements for inline styles */
 .checkout-fixed-header {
     position: absolute;
     top: 40px;

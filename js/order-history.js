@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Protect page — redirect if not logged in
+    
     const user = getCurrentUser();
     if (!user) {
         window.location.href = 'login.html';
@@ -9,10 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('orders-container');
     const subtitle = document.getElementById('orders-subtitle');
 
-    // Keep a reference to the plain array to modify and save later
+    
     let rawOrders = JSON.parse(localStorage.getItem('cs_orders') || '[]');
 
-    // Show orders newest first for viewing
+    
     const reversedOrders = [...rawOrders].reverse();
 
     if (reversedOrders.length === 0) {
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     subtitle.textContent = `${reversedOrders.length} booking${reversedOrders.length > 1 ? 's' : ''}`;
 
-    // Stats
+    
     const totalSpent = reversedOrders.reduce((sum, o) => sum + o.total, 0);
     let html = `
         <div class="orders-stats">
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    // Order cards
+    
     reversedOrders.forEach(order => {
         const statusClass = order.status.toLowerCase().replace(/\s+/g, '-');
         const serviceTags = order.services.map(s => `<span class="order-service-tag">${s}</span>`).join('');
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Wrap original card content in a flex div, and set outer card to column
+        
         const instantBadge = order.isInstant ? `<span class="order-instant-badge">Instant</span>` : '';
 
         html += `
@@ -92,13 +92,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = html;
 
-    // Attach event listeners for dynamically added rate buttons
+    
     const rateBtns = document.querySelectorAll('.rate-now-btn');
     rateBtns.forEach(btn => {
         btn.addEventListener('click', (e) => showRatingForm(e.target.getAttribute('data-order-id')));
     });
 
-    // Rating Form Logic moved out of global scope where possible, kept globally accessible if generic
+    
     function showRatingForm(orderId) {
         const orderIndex = rawOrders.findIndex(o => o.id === orderId);
         const order = rawOrders[orderIndex];
@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             new RatingWidget(widgetContainer, service, (val) => {
                 ratedCount++;
                 if (ratedCount === order.services.length) {
-                    // All services in this order have been rated
+                    
                     order.rated = true;
                     localStorage.setItem('cs_orders', JSON.stringify(rawOrders));
                     showToast('Thank you for your feedback! 🌟', 'success');

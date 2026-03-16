@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const billContent = document.getElementById('bill-content');
     const confirmBtn = document.getElementById('confirm-book-btn');
 
-    // Retrieve and populate selected dates from schedule.html
+    
     const storedDatesStr = sessionStorage.getItem('cs_selectedDates');
     const dateInput = document.getElementById('checkout-date');
     if (storedDatesStr && dateInput) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (e) { }
     }
 
-    // Retrieve cart from sessionStorage
+    
     const cartDataStr = sessionStorage.getItem('cleansweepCart');
 
     if (!cartDataStr) {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // Generate Bill HTML
+    
     let html = '<div class="bill-items">';
     items.forEach(item => {
         html += `
@@ -48,10 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     html += '</div>';
 
-    // Fixed convenience/tax fees for realistic bill
+    
     const subtotal = cartData.totalPrice;
     const visitingCharge = 49;
-    const taxes = Math.round(subtotal * 0.18); // 18% GST
+    const taxes = Math.round(subtotal * 0.18); 
     const finalTotal = subtotal + visitingCharge + taxes;
 
     html += `
@@ -75,12 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     billContent.innerHTML = html;
 
-    // Handle confirm
+    
     confirmBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const form = document.getElementById('checkout-form');
         if (validateCheckoutForm()) {
-            // Save order to localStorage (F2)
+            
             const serviceNames = items.map(i => i.name);
             const customerName = document.getElementById('checkout-name').value.trim();
             const serviceDate = document.getElementById('checkout-date').value;
@@ -106,11 +106,11 @@ document.addEventListener('DOMContentLoaded', () => {
             sessionStorage.removeItem('cs_isInstant');
             setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
         } else {
-            // Inline errors are already shown by validateCheckoutForm()
+            
         }
     });
 
-    // --- Custom Form Validation (F9) ---
+    
     function setError(id, msg) {
         const el = document.getElementById(id);
         const input = document.getElementById(id.replace('-error', '').replace('checkout-', 'checkout-'));
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input) input.classList.remove('input-error');
     }
 
-    // Clear errors on input
+    
     ['checkout-name', 'checkout-phone', 'checkout-date', 'checkout-time', 'checkout-address'].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
